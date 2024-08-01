@@ -6,15 +6,21 @@
 #    By: dhasan <dhasan@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/25 16:22:01 by dhasan            #+#    #+#              #
-#    Updated: 2024/06/25 16:23:10 by dhasan           ###   ########.fr        #
+#    Updated: 2024/08/01 15:14:01 by dhasan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = MyAwesomePhoneBook
+
 CC = c++
+
 CFLAGS = -std=c++98 -Wall -Wextra -Werror
+
+INCLUDES = -I./includes
+
 SRC = PhoneBook.cpp Contact.cpp main.cpp
-OBJS = $(SRC:.cpp=.o)
+OBJDIR = objs
+OBJS = $(SRC:%.cpp=$(OBJDIR)/%.o)
 
 all: $(NAME)
 
