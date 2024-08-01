@@ -6,7 +6,7 @@
 #    By: dhasan <dhasan@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/25 16:22:01 by dhasan            #+#    #+#              #
-#    Updated: 2024/08/01 15:14:01 by dhasan           ###   ########.fr        #
+#    Updated: 2024/08/01 15:53:02 by dhasan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,11 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 	echo $(GREEN)"Building $(NAME)"$(DEFAULT);
+
+$(OBJDIR)/%.o: %.cpp
+	@mkdir -p $(OBJDIR)
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
+	echo $(GREEN)"Compiling $< to $@"
 
 clean:
 	rm -f $(OBJS)
