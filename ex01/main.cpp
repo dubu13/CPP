@@ -6,7 +6,7 @@
 /*   By: dhasan <dhasan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 13:17:16 by dhasan            #+#    #+#             */
-/*   Updated: 2024/08/03 14:11:14 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/08/03 17:53:26 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int main()
 		else if (command == "SEARCH")
 			phonebook.searchContact();
 		else if (command == "EXIT")
-			exit(0);
+			return 0;
 		else
 			std::cout << "Invalid command, use ADD, SEARCH or EXIT." << std::endl;
 	}
