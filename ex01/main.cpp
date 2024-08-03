@@ -6,7 +6,7 @@
 /*   By: dhasan <dhasan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/25 13:17:16 by dhasan            #+#    #+#             */
-/*   Updated: 2024/08/01 20:14:16 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/08/03 14:11:14 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ int main()
 		std::getline(std::cin, command);
 		if (command == "ADD")
 			phonebook.addContact();
-		// else if (command == "SEARCH")
+		else if (command == "SEARCH")
+			phonebook.searchContact();
 		else if (command == "EXIT")
 			exit(0);
 		else

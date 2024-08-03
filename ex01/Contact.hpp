@@ -6,7 +6,7 @@
 /*   By: dhasan <dhasan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 15:56:48 by dhasan            #+#    #+#             */
-/*   Updated: 2024/08/01 20:11:03 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/08/03 16:11:16 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,15 @@
 #include <iostream>
 #include <string>
 #include <sstream>
+#include <iomanip>
 
 class Contact
 {
 	public:
 		Contact();
 		void setContact();
+		void displayShortContacts(int index) const;
+		void displayFullContact() const;
 
 	private:
 		std::string first_name_;
@@ -29,5 +32,6 @@ class Contact
 		std::string nickname_;
 		std::string phone_number_;
 		std::string darkest_secret_;
+		std::string getInput(const std::string &prompt, bool numeric) const;
 };
 #endif
