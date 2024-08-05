@@ -6,7 +6,7 @@
 /*   By: dhasan <dhasan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/05 14:23:19 by dhasan            #+#    #+#             */
-/*   Updated: 2024/08/05 17:55:10 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/08/05 18:00:38 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ Account::Account(int initial_deposit)
 
 Account::~Account(void)
 {
+	_nbAccounts--;
 	_displayTimestamp();
 	std::cout << "index:" << _accountIndex << ";amount:" << _amount << ";closed" << std::endl;
 }
@@ -106,17 +107,10 @@ void	Account::_displayTimestamp(void)
 {
 	std::time_t	now = std::time(0);
 	std::tm		*ltm = std::localtime(&now);
-	std::cout << '[';
-	std::cout.fill('0');
-	std::cout << (1900 + ltm->tm_year);
-	std::cout.width(2);
-	std::cout << (1 + ltm->tm_mon);
-	std::cout.width(2);
-	std::cout << ltm->tm_mday << '_';
-	std::cout.width(2);
-	std::cout << ltm->tm_hour;
-	std::cout.width(2);
-	std::cout << ltm->tm_min;
-	std::cout.width(2);
-	std::cout << ltm->tm_sec << "] ";
+	std::cout << '[' << std::setfill('0') << std::setw(4) << (1900 + ltm->tm_year)
+			  << std::setw(2) << (1 + ltm->tm_mon)
+			  << std::setw(2) << ltm->tm_mday << '_'
+			  << std::setw(2) << ltm->tm_hour
+			  << std::setw(2) << ltm->tm_min
+			  << std::setw(2) << ltm->tm_sec << "] ";
 }
