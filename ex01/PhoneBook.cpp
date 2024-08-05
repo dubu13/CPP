@@ -6,7 +6,7 @@
 /*   By: dhasan <dhasan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 14:58:11 by dhasan            #+#    #+#             */
-/*   Updated: 2024/08/03 17:46:13 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/08/05 19:31:14 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,9 +55,9 @@ void PhoneBook::searchContact() const
 				return;
 			}
 			else
-				std::cout << "Invalid index." << std::endl;
+				std::cout << "Invalid index, try again" << std::endl;
 		}
 		else
-			std::cout << "Invalid input." << std::endl;
+			std::cout << "Invalid input, try again" << std::endl;
 	}
 }
