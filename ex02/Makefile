@@ -5,20 +5,19 @@
 #                                                     +:+ +:+         +:+      #
 #    By: dhasan <dhasan@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2024/06/25 16:22:01 by dhasan            #+#    #+#              #
-#    Updated: 2024/08/03 18:00:19 by dhasan           ###   ########.fr        #
+#    Created: 2024/08/05 14:19:12 by dhasan            #+#    #+#              #
+#    Updated: 2024/08/05 17:47:11 by dhasan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = MyAwesomePhoneBook
+NAME = bank
 
 CC = c++
-
 CFLAGS = -std=c++98 -Wall -Wextra -Werror
 
 INCLUDES = -I./includes
 
-SRC = PhoneBook.cpp Contact.cpp main.cpp
+SRC = Account.cpp tests.cpp
 OBJDIR = objs
 OBJS = $(SRC:%.cpp=$(OBJDIR)/%.o)
 

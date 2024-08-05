@@ -6,7 +6,7 @@
 #    By: dhasan <dhasan@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/06/24 21:44:59 by dhasan            #+#    #+#              #
-#    Updated: 2024/06/24 22:08:34 by dhasan           ###   ########.fr        #
+#    Updated: 2024/08/03 18:00:24 by dhasan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,8 @@ NAME = megaphone
 CC = c++
 CFLAGS = -std=c++98 -Wall -Wextra -Werror
 SRC = megaphone.cpp
-OBJS = $(SRC:.cpp=.o)
+OBJDIR = objs
+OBJS = $(SRC:%.cpp=$(OBJDIR)/%.o)
 
 all: $(NAME)
 
@@ -23,6 +24,10 @@ all: $(NAME)
 $(NAME): $(OBJS)
 	$(CC) $(CFLAGS) -o $(NAME) $(OBJS)
 	echo $(GREEN)"Building $(NAME)"$(DEFAULT);
+
+$(OBJDIR)/%.o: %.cpp
+	@mkdir -p $(OBJDIR)
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
 	rm -f $(OBJS)
