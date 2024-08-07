@@ -6,7 +6,7 @@
 /*   By: dhasan <dhasan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/01 15:56:48 by dhasan            #+#    #+#             */
-/*   Updated: 2024/08/03 16:11:16 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/08/07 17:21:45 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define CONTACT_HPP
 
 #include <iostream>
+#include <cstdlib>
 #include <string>
 #include <sstream>
 #include <iomanip>
@@ -34,4 +35,7 @@ class Contact
 		std::string darkest_secret_;
 		std::string getInput(const std::string &prompt, bool numeric) const;
 };
+
+bool isNumeric(const std::string &str);
+
 #endif
