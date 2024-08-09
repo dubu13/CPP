@@ -6,7 +6,7 @@
 /*   By: dhasan <dhasan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 19:02:04 by dhasan            #+#    #+#             */
-/*   Updated: 2024/08/09 19:14:34 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/08/09 19:28:55 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,13 @@ int main()
 	int N = 5;
 	std::string name = "Zombie";
 	std::cout << "Creating a horde of " << N << " zombies..." << std::endl;
-	//zombieHorde(N, name);
-	//call with announce function
-	//delete
+
+	Zombie *horde = zombieHorde(N, name);
+
+	for (int i = 0; i < N; i++)
+	{
+		horde[i].announce();
+	}
+	delete[] horde;
 	return 0;
 }
