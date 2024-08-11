@@ -6,14 +6,14 @@
 #    By: dhasan <dhasan@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/10 16:53:47 by dhasan            #+#    #+#              #
-#    Updated: 2024/08/10 16:54:29 by dhasan           ###   ########.fr        #
+#    Updated: 2024/08/11 19:29:42 by dhasan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =
+NAME = replace
 CC = c++
 CFLAGS = -std=c++98 -Wall -Wextra -Werror
-SRC = main.cpp 
+SRC = main.cpp FileProcessor.cpp
 OBJDIR = objs
 OBJS = $(SRC:%.cpp=$(OBJDIR)/%.o)
 
