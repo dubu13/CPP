@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   fileProcessor.cpp                                  :+:      :+:    :+:   */
+/*   FileProcessor.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dhasan <dhasan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 19:24:35 by dhasan            #+#    #+#             */
-/*   Updated: 2024/08/11 19:42:37 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/08/12 19:04:49 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int FileProcessor::processAndSaveFile()
 
 	std::ofstream newFile("modified_" + _filename);
 	if (!newFile.is_open())
-		return (std::cerr << "Error: Failed to create the new file" << _filename << ".replace" << std::endl, 1);
+		return (std::cerr << "Error: Failed to create the new file " << "modified_" << _filename << std::endl, 1);
 
 	newFile << modifiedContent;
 	newFile.close();
