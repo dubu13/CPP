@@ -6,7 +6,7 @@
 /*   By: dhasan <dhasan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 19:01:38 by dhasan            #+#    #+#             */
-/*   Updated: 2024/08/09 19:44:59 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/08/13 18:50:03 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 class Zombie
 {
 	public:
-		Zombie();
 		Zombie(std::string inputName);
 		~Zombie();
 		void announce(void);

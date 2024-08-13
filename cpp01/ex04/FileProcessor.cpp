@@ -6,7 +6,7 @@
 /*   By: dhasan <dhasan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/11 19:24:35 by dhasan            #+#    #+#             */
-/*   Updated: 2024/08/12 19:04:49 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/08/13 18:49:46 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ std::string FileProcessor::replaceOccurrences(std::string content)
 		return content;
 	size_t pos = 0;
 
-	while((pos = content.find(_s1)) != std::string::npos)
+	while((pos = content.find(_s1, pos)) != std::string::npos)
 	{
 		content.erase(pos, _s1.length());
 		content.insert(pos, _s2);

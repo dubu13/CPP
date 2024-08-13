@@ -6,15 +6,11 @@
 /*   By: dhasan <dhasan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 19:01:34 by dhasan            #+#    #+#             */
-/*   Updated: 2024/08/09 19:44:43 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/08/13 18:49:58 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
-
-Zombie::Zombie()
-{
-}
 
 Zombie::Zombie(std::string inputName)
 {
