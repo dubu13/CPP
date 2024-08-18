@@ -6,7 +6,7 @@
 /*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 11:52:41 by dhasan            #+#    #+#             */
-/*   Updated: 2024/08/18 17:06:55 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/08/18 19:04:49 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,20 @@
 
 int main()
 {
-    ScavTrap scav1("Bob");
+    ScavTrap scav("Scavvy");
+    scav.attack("target");
+    scav.takeDamage(30);
+    scav.beRepaired(20);
+    scav.guardGate();
 
-    scav1.attack("John");
-    scav1.takeDamage(30);
-    scav1.beRepaired(20);
-    scav1.guardGate();
+    std::cout << "----------------------------------------" << std::endl;
 
-    // ScavTrap scav2(scav1);
-    // ScavTrap scav3;
-    // scav3 = scav1;
-
+    ClapTrap clap("Clappy");
+    clap.attack("target");
+    clap.takeDamage(5);
+    clap.beRepaired(3);
+    
+    std::cout << "----------------------------------------" << std::endl;
+    
     return 0;
 }
