@@ -6,7 +6,7 @@
 /*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 11:52:48 by dhasan            #+#    #+#             */
-/*   Updated: 2024/08/18 17:07:04 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/08/18 17:53:28 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ class ClapTrap
         void takeDamage(unsigned int amount);
         void beRepaired(unsigned int amount);
 
-    private:
+    protected:
         std::string _name;
         unsigned int _hitPoints;
         unsigned int _energyPoints;
