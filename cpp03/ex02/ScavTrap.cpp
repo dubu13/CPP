@@ -6,7 +6,7 @@
 /*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 15:33:15 by dhasan            #+#    #+#             */
-/*   Updated: 2024/08/18 17:01:29 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/08/18 19:01:56 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &other)
 
 ScavTrap::~ScavTrap()
 {
-    std::cout << "ScavTrap deconstructor called, " << this->_name << " is destroyed" << std::endl;
+    std::cout << "ScavTrap Deconstructor called, " << this->_name << " is destroyed" << std::endl;
 }
 
 void ScavTrap::guardGate()
@@ -59,9 +59,9 @@ void ScavTrap::attack(const std::string &target)
     if (this->_energyPoints > 0 && this->_hitPoints > 0) 
     {
         this->_energyPoints--;
-        std::cout << "ScavTrap named " << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " points of damage!" << std::endl;
-        std::cout << "ScavTrap named " << this->_name << " has " << this->_energyPoints << " energy points left" << std::endl;
+        std::cout << "ScavTrap " << this->_name << " attacks " << target << ", causing " << this->_attackDamage << " points of damage!" << std::endl;
+        std::cout << "ScavTrap " << this->_name << " has " << this->_energyPoints << " energy points left" << std::endl;
     }
     else
-        std::cout << "ScavTrap named " << this->_name << " can't attack" << std::endl;
+        std::cout << "ScavTrap " << this->_name << " can't attack" << std::endl;
 }
