@@ -6,7 +6,7 @@
 /*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 11:52:52 by dhasan            #+#    #+#             */
-/*   Updated: 2024/08/18 15:09:48 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/08/19 18:47:37 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ ClapTrap &ClapTrap::operator=(const ClapTrap &other)
 
 ClapTrap::~ClapTrap()
 {
-    std::cout << "Deconstructor called, " << _name << " is destroyed" << std::endl;
+    std::cout << "Destructor called, " << _name << " is destroyed" << std::endl;
 }
 
 void ClapTrap::attack(const std::string &target)

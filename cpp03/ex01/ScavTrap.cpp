@@ -6,7 +6,7 @@
 /*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 15:33:15 by dhasan            #+#    #+#             */
-/*   Updated: 2024/08/18 19:06:01 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/08/19 18:47:11 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ ScavTrap &ScavTrap::operator=(const ScavTrap &other)
 
 ScavTrap::~ScavTrap()
 {
-    std::cout << "ScavTrap Deconstructor called, " << this->_name << " is destroyed" << std::endl;
+    std::cout << "ScavTrap Destructor called, " << this->_name << " is destroyed" << std::endl;
 }
 
 void ScavTrap::guardGate()

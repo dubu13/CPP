@@ -6,7 +6,7 @@
 /*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/18 17:52:08 by dhasan            #+#    #+#             */
-/*   Updated: 2024/08/18 18:50:28 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/08/19 18:46:36 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ FragTrap &FragTrap::operator=(const FragTrap &other)
 
 FragTrap::~FragTrap()
 {
-    std::cout << "FragTrap Deconstructor called, " << this->_name << " is destroyed" << std::endl;
+    std::cout << "FragTrap Destructor called, " << this->_name << " is destroyed" << std::endl;
 }
 
 void FragTrap::highFivesGuys(void)
