@@ -6,13 +6,14 @@
 /*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 20:04:07 by dhasan            #+#    #+#             */
-/*   Updated: 2024/08/19 20:06:55 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/08/20 14:10:16 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include "Animal.hpp"
+#include "Brain.hpp"
 
 class Cat: public Animal
 {
@@ -23,4 +24,7 @@ class Cat: public Animal
         ~Cat();
 
         void makeSound() const;
+
+    private:
+        Brain *brain;
 };

@@ -6,7 +6,7 @@
 /*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 19:47:32 by dhasan            #+#    #+#             */
-/*   Updated: 2024/08/19 20:04:01 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/08/20 12:22:14 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,11 +19,13 @@ Animal::Animal() : type("Animal")
 
 Animal::Animal(const Animal& other)
 {
+    std::cout << "Animal copy constructor called" << std::endl;
     *this = other;
 }
 
 Animal &Animal::operator=(const Animal& other)
 {
+    std::cout << "Animal assignation operator called" << std::endl;
     if (this != &other)
         this->type = other.type;
 

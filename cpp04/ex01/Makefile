@@ -6,16 +6,16 @@
 #    By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/18 11:52:45 by dhasan            #+#    #+#              #
-#    Updated: 2024/08/19 21:56:58 by dhasan           ###   ########.fr        #
+#    Updated: 2024/08/20 14:55:43 by dhasan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME =
+NAME = AnimalSounds
 CC = c++
 CFLAGS = -std=c++98 -Wall -Wextra -Werror 
 INCLUDES = -I ./inc
 
-SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp
+SRCS = main.cpp Animal.cpp Cat.cpp Dog.cpp Brain.cpp
 
 OBJDIR = objs
 SRCDIR = src
