@@ -6,16 +6,16 @@
 #    By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/18 11:52:45 by dhasan            #+#    #+#              #
-#    Updated: 2024/08/24 12:52:36 by dhasan           ###   ########.fr        #
+#    Updated: 2024/08/24 15:25:29 by dhasan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = 
+NAME = materia
 CC = c++
-CFLAGS = -Wall -Wextra -Werror 
+CFLAGS = -Wall -Wextra -Werror
 INCLUDES = -I ./inc
 
-SRCS = main.cpp
+SRCS = main.cpp AMateria.cpp Cure.cpp Ice.cpp Character.cpp MateriaSource.cpp
 
 OBJDIR = objs
 SRCDIR = src

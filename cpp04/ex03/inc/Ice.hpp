@@ -6,7 +6,7 @@
 /*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 12:57:22 by dhasan            #+#    #+#             */
-/*   Updated: 2024/08/24 12:58:24 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/08/24 14:35:11 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ class Ice : public AMateria
         Ice &operator=(const Ice& other);
         ~Ice();
 
-        AMateria* clone() const;
+        Ice *clone() const;
         void use(ICharacter& target);
 };

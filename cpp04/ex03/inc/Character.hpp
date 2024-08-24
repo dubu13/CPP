@@ -6,12 +6,13 @@
 /*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 13:05:32 by dhasan            #+#    #+#             */
-/*   Updated: 2024/08/24 13:09:49 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/08/24 14:44:15 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include "ICharacter.hpp"
+#include "AMateria.hpp"
 
 class Character : public ICharacter
 {

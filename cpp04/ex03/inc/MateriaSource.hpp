@@ -6,7 +6,7 @@
 /*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 13:12:34 by dhasan            #+#    #+#             */
-/*   Updated: 2024/08/24 13:14:53 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/08/24 14:58:15 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,4 @@ class MateriaSource : public IMateriaSource
 
     private:
         AMateria *_materias[4];
-}
+};

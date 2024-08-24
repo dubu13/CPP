@@ -6,7 +6,7 @@
 /*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 12:58:33 by dhasan            #+#    #+#             */
-/*   Updated: 2024/08/24 12:59:15 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/08/24 14:33:41 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,6 @@ class Cure : public AMateria
         Cure &operator=(const Cure& other);
         ~Cure();
 
-        AMateria* clone() const;
+        Cure *clone() const;
         void use(ICharacter& target);
 };

@@ -6,14 +6,13 @@
 /*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 12:53:36 by dhasan            #+#    #+#             */
-/*   Updated: 2024/08/24 13:09:54 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/08/24 15:28:42 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 #include <iostream>
-
-class ICharacter;
+#include "ICharacter.hpp"
 
 class AMateria
 {
