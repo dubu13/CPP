@@ -6,7 +6,7 @@
 /*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/24 12:52:10 by dhasan            #+#    #+#             */
-/*   Updated: 2024/08/24 17:45:01 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/08/25 14:47:42 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,37 +18,68 @@
 #include "ICharacter.hpp"
 #include "AMateria.hpp"
 
-void additionalTests()
+void testEquippingMoreThanFourMaterias()
 {
-	std::cout << "\n--- Additional Tests ---\n" << std::endl;
-
+	std::cout << "\n--- Test equipping more than 4 materias ---\n" << std::endl;
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
-	src->learnMateria(new Cure());
-	std::cout << "-----------------------------------------" << std::endl;
 	ICharacter* me = new Character("me");
-	ICharacter* bob = new Character("bob");
-
-	std::cout << "\n--- Test equipping more than 4 materias ---\n" << std::endl;
 	for (int i = 0; i < 5; i++) {
 		AMateria* tmp = src->createMateria("ice");
 		me->equip(tmp);
 	}
+	std::cout << std::endl;
+	delete me;
+	delete src;
+}
 
+void testUsingNonExistentMateria()
+{
 	std::cout << "\n--- Test using non-existent materia ---\n" << std::endl;
+	ICharacter* bob = new Character("bob");
+	ICharacter* me = new Character("me");
 	me->use(4, *bob);
+	std::cout << std::endl;
+	delete bob;
+	delete me;
+}
 
+void testUnequipping()
+{
 	std::cout << "\n--- Test unequipping ---\n" << std::endl;
+	IMateriaSource* src = new MateriaSource();
+	src->learnMateria(new Ice());
+	ICharacter* me = new Character("me");
+	ICharacter* bob = new Character("bob");
+	AMateria* tmp = src->createMateria("ice");
+	me->equip(tmp);
 	me->unequip(0);
 	me->use(0, *bob);
+	delete bob;
+	delete me;
+	delete src;
+}
 
+void testDeepCopyOfCharacter()
+{
 	std::cout << "\n--- Test deep copy of Character ---\n" << std::endl;
+	IMateriaSource* src = new MateriaSource();
+	src->learnMateria(new Ice());
 	Character* john = new Character("John");
 	john->equip(src->createMateria("ice"));
 	Character* johnCopy = new Character(*john);
 	john->unequip(0);
+	ICharacter* bob = new Character("bob");
 	johnCopy->use(0, *bob);
+	std::cout << std::endl;
+	delete bob;
+	delete john;
+	delete johnCopy;
+	delete src;
+}
 
+void testMateriaSource()
+{
 	std::cout << "\n--- Test MateriaSource ---\n" << std::endl;
 	MateriaSource* newSrc = new MateriaSource();
 	newSrc->learnMateria(new Ice());
@@ -56,16 +87,9 @@ void additionalTests()
 	newSrc->learnMateria(new Ice());
 	newSrc->learnMateria(new Cure());
 	newSrc->learnMateria(new Ice()); // Should not learn this one
-
-	std::cout << "-----------------------------------------" << std::endl;
-	delete bob;
-	delete me;
-	delete src;
-	delete john;
-	delete johnCopy;
+	std::cout << std::endl;
 	delete newSrc;
 }
-
 int main()
 {
 	std::cout << "\n--- Basic Tests ---\n" << std::endl;
@@ -95,6 +119,10 @@ int main()
 	delete me;
 	delete src;
 	std::cout << "-----------------------------------------" << std::endl;
-	// additionalTests();
+	// testEquippingMoreThanFourMaterias();
+	// // testUsingNonExistentMateria();
+	// // testUnequipping();
+	// // testDeepCopyOfCharacter();
+	// // testMateriaSource();
 	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/19 19:59:28 by dhasan            #+#    #+#             */
-/*   Updated: 2024/08/19 20:02:44 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/08/25 14:49:22 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,4 @@ class Animal
 
     protected:
        std::string type;
-    
 };
