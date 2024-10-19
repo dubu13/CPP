@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.hpp                                         :+:      :+:    :+:   */
+/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/09 19:01:38 by dhasan            #+#    #+#             */
-/*   Updated: 2024/08/22 19:11:18 by dhasan           ###   ########.fr       */
+/*   Created: 2024/10/18 19:11:04 by dhasan            #+#    #+#             */
+/*   Updated: 2024/10/19 17:55:33 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ZOMBIE_HPP
-#define ZOMBIE_HPP
-
+#pragma once
 #include <iostream>
+#include <string>
 
-class Zombie
+class Bureaucrat
 {
 	public:
-		Zombie();
-		Zombie(std::string inputName);
-		~Zombie();
-		void announce(void);
-		void setName(std::string inputName);
+		Bureaucrat(std::string const name, int grade);
+		Bureaucrat(const Bureaucrat& other);
+		Bureaucrat &operator=(const Bureaucrat& other);
+		~Bureaucrat();
+
 	private:
-		std::string name;
+		std::string const _name;
+		int _grade;
+		std::string getName();
+		int getGrade();
 };
-
-Zombie *zombieHorde(int N, std::string name);
-
-#endif

@@ -6,16 +6,16 @@
 #    By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/18 11:52:45 by dhasan            #+#    #+#              #
-#    Updated: 2024/09/03 17:47:50 by dhasan           ###   ########.fr        #
+#    Updated: 2024/10/18 18:25:36 by dhasan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = materia
+NAME = 
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror
 INCLUDES = -I ./inc
 
-SRCS = main.cpp AMateria.cpp Cure.cpp Ice.cpp Character.cpp MateriaSource.cpp
+SRCS =
 
 OBJDIR = objs
 SRCDIR = src
@@ -33,7 +33,7 @@ $(NAME): $(OBJS)
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 	@mkdir -p $(OBJDIR)
-	$(CC) $(CXXFLAGS) $(INCLUDES) -c $< -o $@
+	$(CXX) $(CXXFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
 	rm -f $(OBJS)

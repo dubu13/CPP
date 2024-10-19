@@ -3,14 +3,19 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dhasan <dhasan@student.42.fr>              +#+  +:+       +#+        */
+/*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/09 19:01:34 by dhasan            #+#    #+#             */
-/*   Updated: 2024/08/13 18:49:58 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/08/22 19:11:28 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
+
+Zombie::Zombie()
+{
+	std::cout << "Zombie is created" << std::endl;
+}
 
 Zombie::Zombie(std::string inputName)
 {
