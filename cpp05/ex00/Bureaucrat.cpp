@@ -6,7 +6,7 @@
 /*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 19:13:35 by dhasan            #+#    #+#             */
-/*   Updated: 2024/10/19 18:07:04 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/10/19 18:40:56 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,3 +46,14 @@ int Bureaucrat::getGrade()
 {
 	return this->_grade;
 }
+
+try
+{
+	do something
+}
+catch (exceptin; like out_of_range( &e -> reference to object))
+{
+	exception thrown
+	throw
+}
+u can have multiple catch blocks
