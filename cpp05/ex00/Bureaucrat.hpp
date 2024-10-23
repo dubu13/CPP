@@ -6,7 +6,7 @@
 /*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 19:11:04 by dhasan            #+#    #+#             */
-/*   Updated: 2024/10/19 17:55:33 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/10/23 13:14:17 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,12 @@ class Bureaucrat
 		Bureaucrat(const Bureaucrat& other);
 		Bureaucrat &operator=(const Bureaucrat& other);
 		~Bureaucrat();
+		std::string getName();
+		int getGrade();
+		void incrementGrade();
+		void decrementGrade();
 
 	private:
 		std::string const _name;
 		int _grade;
-		std::string getName();
-		int getGrade();
 };
