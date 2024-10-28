@@ -6,21 +6,21 @@
 #    By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/18 11:52:45 by dhasan            #+#    #+#              #
-#    Updated: 2024/10/18 18:25:36 by dhasan           ###   ########.fr        #
+#    Updated: 2024/10/28 15:31:33 by dhasan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = 
+NAME = bureaucrat
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror
 INCLUDES = -I ./inc
 
-SRCS =
+SRCS = $(wildcard src/*.cpp)
 
 OBJDIR = objs
 SRCDIR = src
 
-SRC = $(addprefix $(SRCDIR)/, $(SRCS))
+SRC = $(wildcard $(SRCDIR)/*.cpp) main.cpp
 OBJS = $(SRC:$(SRCDIR)/%.cpp=$(OBJDIR)/%.o)
 
 all: $(NAME)
