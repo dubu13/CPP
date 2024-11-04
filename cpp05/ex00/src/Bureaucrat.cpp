@@ -6,7 +6,7 @@
 /*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 19:13:35 by dhasan            #+#    #+#             */
-/*   Updated: 2024/10/28 15:22:42 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/11/04 16:34:46 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name), _grade(
 		throw Bureaucrat::GradeTooHighException();
 	if (grade > 150)
 		throw Bureaucrat::GradeTooLowException();
-	std::cout << "Bureaucrat " << this->_name << " created with grade " << this->_grade << std::endl;
+	std::cout << this->_name << " created with grade " << this->_grade << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other)
@@ -62,7 +62,7 @@ void Bureaucrat::incrementGrade()
 	}
 	catch (std::exception &e)
 	{
-		std::cerr << "Exception " << e.what() << std::endl;
+		std::cerr << "Exception: " << e.what() << std::endl;
 	}
 }
 void Bureaucrat::decrementGrade()
@@ -76,7 +76,7 @@ void Bureaucrat::decrementGrade()
 	}
 	catch (std::exception &e)
 	{
-		std::cerr << "Exception " << e.what() << std::endl;
+		std::cerr << "Exception: " << e.what() << std::endl;
 	}
 }
 const char* Bureaucrat::GradeTooHighException::what() const throw()

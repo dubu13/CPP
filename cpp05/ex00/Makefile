@@ -6,13 +6,13 @@
 #    By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/18 11:52:45 by dhasan            #+#    #+#              #
-#    Updated: 2024/10/28 15:31:33 by dhasan           ###   ########.fr        #
+#    Updated: 2024/11/04 16:21:31 by dhasan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = bureaucrat
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror
+CXXFLAGS = -std=c++17 -Wall -Wextra -Werror
 INCLUDES = -I ./inc
 
 SRCS = $(wildcard src/*.cpp)
@@ -20,7 +20,7 @@ SRCS = $(wildcard src/*.cpp)
 OBJDIR = objs
 SRCDIR = src
 
-SRC = $(wildcard $(SRCDIR)/*.cpp) main.cpp
+SRC = $(wildcard $(SRCDIR)/*.cpp)
 OBJS = $(SRC:$(SRCDIR)/%.cpp=$(OBJDIR)/%.o)
 
 all: $(NAME)
