@@ -6,7 +6,7 @@
 /*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 19:13:35 by dhasan            #+#    #+#             */
-/*   Updated: 2024/11/05 17:27:30 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/11/05 18:35:32 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name), _grade(
 	std::cout << this->_name << " created with grade " << this->_grade << std::endl;
 }
 
-Bureaucrat::Bureaucrat(const Bureaucrat& other)
+Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name)
 {
 	std::cout << "Bureaucrat copy constructor called." << std::endl;
 	*this = other;
@@ -90,5 +90,13 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 
 void Bureaucrat::signForm(Form& form)
 {
-
+	try
+	{
+		form.beSigned(*this);
+	}
+	catch (const Form::GradeTooLowException &e)
+	{
+		std::cout << "Bureaucrat " << this->getName() << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
+	}
+	std::cout << "Bureaucrat " << this->getName() << " signed " << form.getName() << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:42:01 by dhasan            #+#    #+#             */
-/*   Updated: 2024/11/05 17:26:26 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/11/05 18:40:37 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,10 @@ Form::Form(std::string const name, int gradeToSign, int gradeToExecute) : _name(
 		throw Form::GradeTooHighException();
 	else if (gradeToSign > 150 || gradeToExecute > 150)
 		throw Form::GradeTooLowException();
-	std::cout << "Form " << this->_name << " created with grade to sign " << this->_gradeToSign << " and grade to execute " << this->_gradeToExecute <<
+	std::cout << "Form " << this->_name << " created with grade to sign " << this->_gradeToSign << " and grade to execute " << this->_gradeToExecute << std::endl;
 }
 
-Form::Form(const Form& other)
+Form::Form(const Form& other) : _name(other._name), _gradeToSign(other._gradeToSign), _gradeToExecute(other._gradeToExecute)
 {
 	std::cout << "Form copy constructor called." << std::endl;
 	*this = other;
@@ -55,6 +55,11 @@ bool Form::getIsSigned() const
 	if (this->_isSigned)
 		return true;
 	return false;
+}
+
+std::string Form::getName() const
+{
+	return this->_name;
 }
 
 const char* Form::GradeTooHighException::what() const throw()
