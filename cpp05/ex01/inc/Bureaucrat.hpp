@@ -6,7 +6,7 @@
 /*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 19:11:04 by dhasan            #+#    #+#             */
-/*   Updated: 2024/10/28 15:05:40 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/11/05 17:27:05 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 #include <iostream>
 #include <string>
 #include <exception>
+#include "Form.hpp"
 
 class Bureaucrat
 {
@@ -27,6 +28,7 @@ class Bureaucrat
 		int getGrade() const;
 		void incrementGrade();
 		void decrementGrade();
+		void signForm(Form& form);
 		class GradeTooHighException : public std::exception
 		{
 			public :
@@ -42,9 +44,3 @@ class Bureaucrat
 		std::string const _name;
 		int _grade;
 };
-
-/*
-do custom class for exception;
-its inherit from std::exception
-we gonna override what(); its return an error msg
-*/

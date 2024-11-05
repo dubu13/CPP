@@ -6,7 +6,7 @@
 /*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 19:13:35 by dhasan            #+#    #+#             */
-/*   Updated: 2024/11/04 16:34:46 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/11/05 17:27:30 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,13 +87,8 @@ const char* Bureaucrat::GradeTooLowException::what() const throw()
 {
 	return "Grade too low";
 }
-// try
-// {
-// 	do something
-// }
-// catch (exceptin; like out_of_range( &e -> reference to object))
-// {
-// 	exception thrown
-// 	throw
-// }
-// u can have multiple catch blocks
+
+void Bureaucrat::signForm(Form& form)
+{
+
+}
