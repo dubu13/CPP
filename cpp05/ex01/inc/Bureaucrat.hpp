@@ -6,15 +6,15 @@
 /*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 19:11:04 by dhasan            #+#    #+#             */
-/*   Updated: 2024/11/05 18:29:31 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/11/09 17:13:09 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
+#include "Form.hpp"
 #include <iostream>
 #include <string>
 #include <exception>
-#include "Form.hpp"
 
 class Form;
 
@@ -46,3 +46,5 @@ class Bureaucrat
 		std::string const _name;
 		int _grade;
 };
+
+std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat);

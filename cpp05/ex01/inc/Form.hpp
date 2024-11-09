@@ -6,7 +6,7 @@
 /*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:41:32 by dhasan            #+#    #+#             */
-/*   Updated: 2024/11/05 18:29:49 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/11/09 17:13:01 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ class Form
 		void beSigned(Bureaucrat& bureaucrat);
 		bool getIsSigned() const;
 		std::string getName() const;
+		int getGradeToSign() const;
+		int getGradeToExecute() const;
+
 		class GradeTooHighException : public std::exception
 		{
 			public :
@@ -46,3 +49,5 @@ class Form
 		int const _gradeToExecute;
 		bool _isSigned;
 };
+
+std::ostream &operator<<(std::ostream &os, const Form &form);

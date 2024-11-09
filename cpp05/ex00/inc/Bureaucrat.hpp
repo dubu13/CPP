@@ -6,7 +6,7 @@
 /*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 19:11:04 by dhasan            #+#    #+#             */
-/*   Updated: 2024/10/28 15:05:40 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/11/09 17:13:23 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,4 @@ class Bureaucrat
 		int _grade;
 };
 
-/*
-do custom class for exception;
-its inherit from std::exception
-we gonna override what(); its return an error msg
-*/
+std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat);

@@ -6,7 +6,7 @@
 /*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 19:13:35 by dhasan            #+#    #+#             */
-/*   Updated: 2024/11/05 18:35:32 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/11/09 16:49:57 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,25 @@
 
 Bureaucrat::Bureaucrat(std::string const name, int grade) : _name(name), _grade(grade)
 {
-	std::cout << "Bureaucrat constructor called." << std::endl;
 	if (grade < 1)
 		throw Bureaucrat::GradeTooHighException();
 	if (grade > 150)
 		throw Bureaucrat::GradeTooLowException();
+	std::cout << "Bureaucrat constructor called." << std::endl;
 	std::cout << this->_name << " created with grade " << this->_grade << std::endl;
 }
 
 Bureaucrat::Bureaucrat(const Bureaucrat& other) : _name(other._name)
 {
-	std::cout << "Bureaucrat copy constructor called." << std::endl;
 	*this = other;
+	std::cout << "Bureaucrat copy constructor called." << std::endl;
 }
 
 Bureaucrat &Bureaucrat::operator=(const Bureaucrat& other)
 {
-	std::cout << "Bureaucrat assignation operator called." << std::endl;
 	if (this != &other)
 		this->_grade = other._grade;
+	std::cout << "Bureaucrat assignation operator called." << std::endl;
 	return *this;
 }
 
@@ -99,4 +99,10 @@ void Bureaucrat::signForm(Form& form)
 		std::cout << "Bureaucrat " << this->getName() << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
 	}
 	std::cout << "Bureaucrat " << this->getName() << " signed " << form.getName() << std::endl;
+}
+
+std::ostream &operator<<(std::ostream &os, const Bureaucrat &bureaucrat)
+{
+	os << bureaucrat.getName() << ", bureaucrat grade " << bureaucrat.getGrade();
+	return os;
 }

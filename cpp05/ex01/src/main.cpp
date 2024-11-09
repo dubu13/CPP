@@ -6,7 +6,7 @@
 /*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:22:36 by dhasan            #+#    #+#             */
-/*   Updated: 2024/11/05 18:49:14 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/11/09 17:18:35 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,11 @@ int main()
 {
 	try
 	{
-		std::cout << "\n Test 1: Normal case" << std::endl;
+		std::cout << "\n=== Test 1: Normal case ===" << std::endl;
 		Bureaucrat boss("Boss", 1);
 		Form contract("Contract", 2, 2);
 		boss.signForm(contract);
+		std::cout << contract << std::endl;
 	}
 	catch (std::exception &e)
 	{
@@ -29,7 +30,7 @@ int main()
 
 	try
 	{
-		std::cout << "\n Test 2: Grade too low to sign" << std::endl;
+		std::cout << "\n=== Test 2: Grade too low to sign ===" << std::endl;
 		Bureaucrat intern("Intern", 150);
 		Form important("Important", 1, 1);
 		intern.signForm(important);
@@ -41,7 +42,7 @@ int main()
 
 	try
 	{
-		std::cout << "\n Test 3: Invalid form creation" << std::endl;
+		std::cout << "\n=== Test 3: Invalid form creation ===" << std::endl;
 		Form invalid("Invalid", 151, 1); // Should throw exception
 	}
 	catch (std::exception &e)
@@ -51,7 +52,7 @@ int main()
 
 	try
 	{
-		std::cout << "\n Test 4: Another invalid form" << std::endl;
+		std::cout << "\n=== Test 4: Another invalid form ===" << std::endl;
 		Form tooHigh("TooHigh", 0, 1); // Should throw exception
 	}
 	catch (std::exception &e)
