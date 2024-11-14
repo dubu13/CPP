@@ -6,7 +6,7 @@
 /*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:41:32 by dhasan            #+#    #+#             */
-/*   Updated: 2024/11/10 18:54:50 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/11/13 15:36:55 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 #include <iostream>
 #include <string>
 #include <exception>
+#include <fstream>
 #include "Bureaucrat.hpp"
 
 /*
@@ -23,13 +24,13 @@
 */
 class Bureaucrat;
 
-class Form
+class AForm
 {
 	public:
-		Form(std::string const name, int gradeToSign, int gradeToExecute);
-		Form(const Form& other);
-		Form &operator=(const Form& other);
-		~Form();
+		AForm(std::string const name, int gradeToSign, int gradeToExecute, std::string const target);
+		AForm(const AForm& other);
+		Aform &operator=(const Aform& other);
+		~AForm();
 		void beSigned(Bureaucrat& bureaucrat);
 		bool getIsSigned() const;
 		std::string getName() const;
@@ -47,6 +48,8 @@ class Form
 				const char *what() const throw();
 		};
 
+	protected:
+		std::string const _target;
 	private:
 		std::string const _name;
 		int const _gradeToSign;
@@ -54,4 +57,4 @@ class Form
 		bool _isSigned;
 };
 
-std::ostream &operator<<(std::ostream &os, const Form &form);
+std::ostream &operator<<(std::ostream &os, const AForm &Aform);
