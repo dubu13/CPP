@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*   By: dhasan <dhasan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:22:36 by dhasan            #+#    #+#             */
-/*   Updated: 2024/11/09 17:18:35 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/11/14 19:21:42 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ int main()
 	try
 	{
 		std::cout << "\n=== Test 3: Invalid form creation ===" << std::endl;
-		Form invalid("Invalid", 151, 1); // Should throw exception
+		Form invalid("Invalid", 151, 1);
 	}
 	catch (std::exception &e)
 	{
@@ -53,7 +53,7 @@ int main()
 	try
 	{
 		std::cout << "\n=== Test 4: Another invalid form ===" << std::endl;
-		Form tooHigh("TooHigh", 0, 1); // Should throw exception
+		Form tooHigh("TooHigh", 0, 1);
 	}
 	catch (std::exception &e)
 	{

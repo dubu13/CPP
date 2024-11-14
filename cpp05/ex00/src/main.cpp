@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
+/*   By: dhasan <dhasan@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:22:36 by dhasan            #+#    #+#             */
-/*   Updated: 2024/11/09 17:16:09 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/11/14 19:20:51 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int main()
 
 	std::cout << "\n=== Test 3: Grade Too Low ===" << std::endl;
 	try {
-		Bureaucrat charlie("Charlie", 151);  // Should throw exception
+		Bureaucrat charlie("Charlie", 151);
 	}
 	catch (std::exception& e) {
 		std::cerr << "Exception: " << e.what() << std::endl;
@@ -45,7 +45,7 @@ int main()
 	try {
 		Bureaucrat david("David", 1);
 		std::cout << "Initial " << david.getName() << " grade: " << david.getGrade() << std::endl;
-		david.incrementGrade();  // Should throw exception
+		david.incrementGrade();
 	}
 	catch (std::exception& e) {
 		std::cerr << "Exception: " << e.what() << std::endl;
@@ -55,9 +55,9 @@ int main()
 	try {
 		Bureaucrat eve("Eve", 150);
 		std::cout << "Initial " << eve.getName() << " grade: " << eve.getGrade() << std::endl;
-		eve.decrementGrade();  // Should throw exception
+		eve.decrementGrade();
 	}
 	catch (std::exception& e) {
 		std::cerr << "Exception: " << e.what() << std::endl;
 	}
-	}
+}
