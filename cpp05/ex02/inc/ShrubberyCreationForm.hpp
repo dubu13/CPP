@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/10 19:39:55 by dhasan            #+#    #+#             */
-/*   Updated: 2024/11/13 15:09:51 by dhasan           ###   ########.fr       */
+/*   Created: 2024/11/14 21:08:07 by dhasan            #+#    #+#             */
+/*   Updated: 2024/11/14 21:32:33 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 #include "AForm.hpp"
 #define TREE \
-"              *\
-              ***\
-             *****\
-            *******\
-           *********\
-          ***********\
-         *** /\_/\ ***\
-        *** ( o.o ) ***\
-       ***   > ^ <   ***\
-      *******************\"
+"              *\n\
+              ***\n\
+             *****\n\
+            *******\n\
+           *********\n\
+          ***********\n\
+         *** /\\_/\\ ***\n\
+        *** ( o.o ) ***\n\
+       ***   > ^ <   ***\n\
+      *******************\n"
 
 class AForm;
 class ShrubberyCreationForm : public AForm
@@ -33,5 +33,6 @@ class ShrubberyCreationForm : public AForm
 		ShrubberyCreationForm(const ShrubberyCreationForm& other);
 		ShrubberyCreationForm &operator=(const ShrubberyCreationForm& other);
 		~ShrubberyCreationForm();
-		void execute(Bureaucrat const & executor);
+		void execute(Bureaucrat const & executor) override;
+      
 };

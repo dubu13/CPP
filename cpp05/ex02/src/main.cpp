@@ -6,58 +6,42 @@
 /*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:22:36 by dhasan            #+#    #+#             */
-/*   Updated: 2024/11/09 17:18:35 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/11/14 22:14:55 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Bureaucrat.hpp"
-#include "Form.hpp"
+#include "AForm.hpp"
+#include "ShrubberyCreationForm.hpp"
 
 int main()
 {
-	try
-	{
-		std::cout << "\n=== Test 1: Normal case ===" << std::endl;
-		Bureaucrat boss("Boss", 1);
-		Form contract("Contract", 2, 2);
-		boss.signForm(contract);
-		std::cout << contract << std::endl;
-	}
-	catch (std::exception &e)
-	{
-		std::cerr << "Exception: " << e.what() << std::endl;
-	}
-
-	try
-	{
-		std::cout << "\n=== Test 2: Grade too low to sign ===" << std::endl;
-		Bureaucrat intern("Intern", 150);
-		Form important("Important", 1, 1);
-		intern.signForm(important);
-	}
-	catch (std::exception &e)
-	{
-		std::cerr << "Exception: " << e.what() << std::endl;
-	}
-
-	try
-	{
-		std::cout << "\n=== Test 3: Invalid form creation ===" << std::endl;
-		Form invalid("Invalid", 151, 1); // Should throw exception
-	}
-	catch (std::exception &e)
-	{
-		std::cerr << "Exception: " << e.what() << std::endl;
-	}
-
-	try
-	{
-		std::cout << "\n=== Test 4: Another invalid form ===" << std::endl;
-		Form tooHigh("TooHigh", 0, 1); // Should throw exception
-	}
-	catch (std::exception &e)
-	{
-		std::cerr << "Exception: " << e.what() << std::endl;
-	}
-	return 0;
+    try
+    {
+        Bureaucrat boss("Boss", 1);
+        Bureaucrat intern("Intern", 150);
+        
+        ShrubberyCreationForm form("garden");
+        
+        std::cout << "\n--- Testing unsigned form execution ---\n" << std::endl;
+        form.execute(boss);
+        
+        std::cout << "\n--- Testing signing with low grade ---\n" << std::endl;
+        intern.signForm(form);
+        
+        std::cout << "\n--- Testing signing with valid grade ---\n" << std::endl;
+        boss.signForm(form);
+        
+        std::cout << "\n--- Testing execution with low grade ---\n" << std::endl;
+        form.execute(intern);
+        
+        std::cout << "\n--- Testing successful execution ---\n" << std::endl;
+        form.execute(boss);
+    }
+    catch (std::exception &e)
+    {
+        std::cerr << "Exception: " << e.what() << std::endl;
+    }
+    
+    return 0;
 }

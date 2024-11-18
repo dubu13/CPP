@@ -6,17 +6,18 @@
 /*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 19:11:04 by dhasan            #+#    #+#             */
-/*   Updated: 2024/11/09 17:13:09 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/11/14 22:10:30 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#include "Form.hpp"
+
+#include "AForm.hpp"
 #include <iostream>
 #include <string>
 #include <exception>
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -30,7 +31,7 @@ class Bureaucrat
 		int getGrade() const;
 		void incrementGrade();
 		void decrementGrade();
-		void signForm(Form& form);
+		void signForm(AForm& form);
 		class GradeTooHighException : public std::exception
 		{
 			public :

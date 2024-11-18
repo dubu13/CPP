@@ -6,14 +6,14 @@
 /*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:42:01 by dhasan            #+#    #+#             */
-/*   Updated: 2024/11/13 15:36:39 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/11/14 21:45:40 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
 AForm::AForm(const std::string name, int gradeToSign, int gradeToExecute, const std::string target)
-	: _name(name), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute), _target(target)
+	: _target(target), _name(name), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
 {
 	this->_isSigned = false;
 	if (gradeToSign < 1 || gradeToExecute < 1)
@@ -25,17 +25,20 @@ AForm::AForm(const std::string name, int gradeToSign, int gradeToExecute, const 
 }
 
 AForm::AForm(const AForm& other)
-	: _name(other._name), _gradeToSign(other._gradeToSign), _gradeToExecute(other._gradeToExecute), _target(other._target), _isSigned(other._isSigned)
+	: _target(other._target), _name(other._name), _gradeToSign(other._gradeToSign),
+	_gradeToExecute(other._gradeToExecute), _isSigned(other._isSigned)
 {
 	std::cout << "AForm copy constructor called." << std::endl;
 }
 
-AForm &AForm::operator=(const AForm& other)
+AForm& AForm::operator=(const AForm& other)
 {
-	if (this != &other)
-		this->_isSigned = other._isSigned;
-	std::cout << "AForm assignation operator called." << std::endl;
-	return *this;
+    if (this != &other)
+    {
+        this->_isSigned = other._isSigned;
+    }
+    std::cout << "AForm copy assignment operator called" << std::endl;
+    return *this;
 }
 
 AForm::~AForm()
