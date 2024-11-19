@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/14 21:08:07 by dhasan            #+#    #+#             */
-/*   Updated: 2024/11/18 14:31:52 by dhasan           ###   ########.fr       */
+/*   Created: 2024/11/18 14:30:51 by dhasan            #+#    #+#             */
+/*   Updated: 2024/11/19 17:04:42 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include "AForm.hpp"
-#define TREE \
-"              *\n\
-              ***\n\
-             *****\n\
-            *******\n\
-           *********\n\
-          ***********\n\
-         *** /\\_/\\ ***\n\
-        *** ( o.o ) ***\n\
-       ***   > ^ <   ***\n\
-      *******************\n"
+#include <random>
 
 class AForm;
-class ShrubberyCreationForm : public AForm
+
+class RobotomyRequestForm : public AForm
 {
 	public:
-		ShrubberyCreationForm(std::string const target);
-		ShrubberyCreationForm(const ShrubberyCreationForm& other);
-		ShrubberyCreationForm &operator=(const ShrubberyCreationForm& other);
-		~ShrubberyCreationForm();
+		RobotomyRequestForm(std::string const target);
+		RobotomyRequestForm(const RobotomyRequestForm& other);
+		RobotomyRequestForm &operator=(const RobotomyRequestForm& other);
+		~RobotomyRequestForm();
 		void execute(Bureaucrat const & executor) override;
 };

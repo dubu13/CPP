@@ -6,7 +6,7 @@
 /*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 20:09:22 by dhasan            #+#    #+#             */
-/*   Updated: 2024/11/14 21:30:40 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/11/18 16:20:35 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor)
 	catch (const std::exception& e)
 	{
 		std::cerr << "ShrubberyCreationForm: " << e.what() << std::endl;
+		return;
 	}
 	std::ofstream file(this->_target + "_shrubbery");
 	if (!file.is_open())
