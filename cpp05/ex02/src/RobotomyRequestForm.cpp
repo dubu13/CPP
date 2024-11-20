@@ -6,19 +6,17 @@
 /*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 14:32:17 by dhasan            #+#    #+#             */
-/*   Updated: 2024/11/19 17:05:10 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/11/20 15:01:53 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "RobotomyRequestForm.hpp"
 
-RobotomyRequestForm::RobotomyRequestForm(std::string const target) : AForm("Robotomy Request", 72, 45, target)
-{
-	std::cout << "RobotomyRequestForm constructor called" << std::endl;
+RobotomyRequestForm::RobotomyRequestForm(std::string const target) : AForm("Robotomy Request", 72, 45, target){
+	// std::cout << "RobotomyRequestForm constructor called" << std::endl;
 }
 
-RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other) : AForm(other)
-{
+RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other) : AForm(other){
 	std::cout << "RobotomyRequestForm copy constructor called" << std::endl;
 }
 
@@ -30,29 +28,24 @@ RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& o
     return *this;
 }
 
-RobotomyRequestForm::~RobotomyRequestForm()
-{
-	std::cout << "RobotomyRequestForm destructor called" << std::endl;
+RobotomyRequestForm::~RobotomyRequestForm(){
+	// std::cout << "RobotomyRequestForm destructor called" << std::endl;
 }
 
-void RobotomyRequestForm::execute(Bureaucrat const & executor)
+void RobotomyRequestForm::execute(Bureaucrat const & executor) const
 {
-	try
-	{
-		if (!this->getIsSigned())
-			throw AForm::FormNotSignedException();
-		if (executor.getGrade() > this->getGradeToExecute())
-			throw AForm::GradeTooLowToExecuteException();	
-	}
-	catch (const std::exception& e)
-	{
-		std::cerr << "RobotomyRequestForm: " << e.what() << std::endl;
-        return;
-	}
-    std::mt19937 gen(std::random_device{}());
-	bool randomSuccess = gen() % 2 == 0;
-	if (randomSuccess)
-		std::cout << this->_target << " has been robotomized successfully" << std::endl;
+	if (!this->getIsSigned())
+		throw AForm::FormNotSignedException();
+	if (executor.getGrade() > this->getGradeToExecute())
+		throw AForm::GradeTooLowToExecuteException();
 	else
-		std::cout << "Robotomy failed for " << this->_target << std::endl;
+	{
+		std::cout << "* DRILLING NOISES * Bzzzz... Whirrr... *" << std::endl;
+		std::mt19937 gen(std::random_device{}());
+		bool randomSuccess = gen() % 2 == 0;
+		if (randomSuccess)
+			std::cout << this->_target << " has been robotomized successfully" << std::endl;
+		else
+			std::cout << "Robotomy failed for " << this->_target << std::endl;
+	}
 }

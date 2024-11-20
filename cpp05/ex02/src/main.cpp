@@ -6,7 +6,7 @@
 /*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:22:36 by dhasan            #+#    #+#             */
-/*   Updated: 2024/11/19 17:17:41 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/11/20 15:20:27 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,47 +14,47 @@
 #include "AForm.hpp"
 #include "ShrubberyCreationForm.hpp"
 #include "RobotomyRequestForm.hpp"
+#include "PresidentialPardonForm.hpp"
+
+void testExecuteForm()
+{
+    std::cout << "\n=== Testing ExecuteForm Function ===\n" << std::endl;
+    
+    Bureaucrat ceo("CEO", 1);
+    Bureaucrat manager("Manager", 50);
+
+    ShrubberyCreationForm shrub("Garden");
+    RobotomyRequestForm robot("Bender");
+    PresidentialPardonForm pardon("Justin");
+
+    // Test execution without signing
+    std::cout << "\n--- Testing unsigned forms ---\n" << std::endl;
+    manager.executeForm(shrub);
+    manager.executeForm(robot);
+    manager.executeForm(pardon); 
+
+    // Sign all forms
+    std::cout << "\n--- Signing all forms ---\n" << std::endl;
+    manager.signForm(shrub);
+    manager.signForm(robot);
+    manager.signForm(pardon); // Should fail - bureaucrat grade too low
+    ceo.signForm(pardon);
+    
+
+    // Test execution with different grade levels
+    std::cout << "\n--- Testing with different grades ---\n" << std::endl;
+    manager.executeForm(robot);   // fail - bureaucrat grade too low
+    manager.executeForm(pardon);  // not signed
+    manager.executeForm(shrub);   // Should succeed
+    ceo.executeForm(pardon);      // Should succeed
+    ceo.executeForm(robot);      // Should succeed
+}
 
 int main()
 {
     try
     {
-        Bureaucrat boss("Boss", 1);
-        Bureaucrat intern("Intern", 150);
-        Bureaucrat manager("Manager", 40);
-        
-        ShrubberyCreationForm shrub("garden");
-        RobotomyRequestForm robot("R2D2");
-        
-        // std::cout << "\n=== Testing ShrubberyCreationForm ===\n" << std::endl;
-        // shrub.execute(boss);
-        // boss.signForm(shrub);
-        // shrub.execute(boss);
-        
-        std::cout << "\n=== Testing RobotomyRequestForm ===\n" << std::endl;
-        
-        // Test unsigned execution
-        std::cout << "\n--- Testing unsigned robotomy execution ---\n" << std::endl;
-        robot.execute(boss);
-        
-        // Test signing with low grade
-        std::cout << "\n--- Testing signing robotomy with low grade ---\n" << std::endl;
-        intern.signForm(robot);
-        
-        // Test signing with valid grade
-        std::cout << "\n--- Testing signing robotomy with valid grade ---\n" << std::endl;
-        boss.signForm(robot);
-        
-        // Test execution with insufficient grade
-        std::cout << "\n--- Testing robotomy execution with low grade ---\n" << std::endl;
-        robot.execute(intern);
-        
-        // Test multiple executions to see randomization
-        std::cout << "\n--- Testing multiple robotomy executions ---\n" << std::endl;
-        robot.execute(boss);
-        robot.execute(boss);
-        robot.execute(manager);
-        robot.execute(boss);
+        testExecuteForm();
     }
     catch (std::exception &e)
     {

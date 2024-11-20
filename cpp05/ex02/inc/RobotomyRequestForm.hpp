@@ -6,7 +6,7 @@
 /*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 14:30:51 by dhasan            #+#    #+#             */
-/*   Updated: 2024/11/19 17:04:42 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/11/19 19:11:06 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ class RobotomyRequestForm : public AForm
 		RobotomyRequestForm(const RobotomyRequestForm& other);
 		RobotomyRequestForm &operator=(const RobotomyRequestForm& other);
 		~RobotomyRequestForm();
-		void execute(Bureaucrat const & executor) override;
+		void execute(Bureaucrat const & executor) const override;
 };

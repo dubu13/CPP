@@ -6,13 +6,13 @@
 #    By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/18 11:52:45 by dhasan            #+#    #+#              #
-#    Updated: 2024/11/04 16:21:31 by dhasan           ###   ########.fr        #
+#    Updated: 2024/11/20 13:49:29 by dhasan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = bureaucrat
 CXX = c++
-CXXFLAGS = -std=c++17 -Wall -Wextra -Werror
+CXXFLAGS = -std=c++17 -Wall -Wextra -Werror -g3
 INCLUDES = -I ./inc
 
 SRCS = $(wildcard src/*.cpp)

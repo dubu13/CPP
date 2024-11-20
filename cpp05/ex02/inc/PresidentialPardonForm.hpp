@@ -6,7 +6,7 @@
 /*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/19 17:31:12 by dhasan            #+#    #+#             */
-/*   Updated: 2024/11/19 17:31:55 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/11/19 19:11:21 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ class PresidentialPardonForm : public AForm
 		PresidentialPardonForm(const PresidentialPardonForm& other);
 		PresidentialPardonForm &operator=(const PresidentialPardonForm& other);
 		~PresidentialPardonForm();
-		void execute(Bureaucrat const & executor) override;
+		void execute(Bureaucrat const & executor) const override;
 };

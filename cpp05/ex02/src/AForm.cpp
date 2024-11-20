@@ -6,7 +6,7 @@
 /*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:42:01 by dhasan            #+#    #+#             */
-/*   Updated: 2024/11/14 21:45:40 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/11/20 15:00:57 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ AForm::AForm(const std::string name, int gradeToSign, int gradeToExecute, const 
 		throw AForm::GradeTooHighException();
 	else if (gradeToSign > 150 || gradeToExecute > 150)
 		throw AForm::GradeTooLowException();
-	std::cout << "AForm constructor called" << std::endl;
+	// std::cout << "AForm constructor called" << std::endl;
 	std::cout << "AForm " << this->_name << " created with grade to sign " << this->_gradeToSign << " and grade to execute " << this->_gradeToExecute << std::endl;
 }
 
@@ -43,16 +43,7 @@ AForm& AForm::operator=(const AForm& other)
 
 AForm::~AForm()
 {
-	std::cout << "AForm destructor called." << std::endl;
-}
-
-const char* AForm::GradeTooHighException::what() const throw()
-{
-	return "Grade too high";
-}
-const char* AForm::GradeTooLowException::what() const throw()
-{
-	return "Grade too low";
+	// std::cout << "AForm destructor called." << std::endl;
 }
 
 void AForm::beSigned(Bureaucrat& bureaucrat)
@@ -63,23 +54,19 @@ void AForm::beSigned(Bureaucrat& bureaucrat)
 		this->_isSigned = true;
 }
 
-bool AForm::getIsSigned() const
-{
+bool AForm::getIsSigned() const{
 	return this->_isSigned;
 }
 
-std::string AForm::getName() const
-{
+std::string AForm::getName() const{
 	return this->_name;
 }
 
-int AForm::getGradeToSign() const
-{
+int AForm::getGradeToSign() const{
 	return this->_gradeToSign;
 }
 
-int AForm::getGradeToExecute() const
-{
+int AForm::getGradeToExecute() const{
 	return this->_gradeToExecute;
 }
 
