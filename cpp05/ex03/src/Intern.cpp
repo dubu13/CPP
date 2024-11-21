@@ -6,7 +6,7 @@
 /*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/20 21:01:15 by dhasan            #+#    #+#             */
-/*   Updated: 2024/11/20 22:25:14 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/11/21 18:25:05 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,20 +39,20 @@ std::string convert_lowercase(std::string str){
     return result;
 }
 
-AForm *Intern::createShrubberyCreation(std::string target){ return new ShrubberyCreationForm(target); }
-AForm *Intern::createRobotomyRequest(std::string target){ return new RobotomyRequestForm(target); }
-AForm *Intern::createPresidentialPardon(std::string target){ return new PresidentialPardonForm(target); }
+AForm* createShrubberyCreation(std::string target){ return new ShrubberyCreationForm(target); }
+AForm* createRobotomyRequest(std::string target){ return new RobotomyRequestForm(target); }
+AForm* createPresidentialPardon(std::string target){ return new PresidentialPardonForm(target); }
 
 AForm* Intern::makeForm(std::string formName, std::string target){
     
     std::string formNames[3] = {"shrubbery creation", "robotomy request", "presidential pardon"};
-    AForm* (*forms[3])(std::string) = {createShrubberyCreation, createRobotomyRequest, createPresidentialPardon};
+    AForm* (*forms[3])(std::string) = {&createShrubberyCreation, &createRobotomyRequest, &createPresidentialPardon};
 
     std::string lowercaseFormName = convert_lowercase(formName);
     for (int i = 0; i < 3; i++){
-        if (lowercaseFormName == convert_lowercase(formNames[i])){
+        if (lowercaseFormName == formNames[i]){
             std::cout << "Intern creates " << formName << std::endl;
-            return forms[i](target);
+            return (forms[i](target));
         }
     }
     std::cout << "Intern couldn't create " << formName <<std::endl;

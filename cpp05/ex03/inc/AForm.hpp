@@ -6,7 +6,7 @@
 /*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 16:41:32 by dhasan            #+#    #+#             */
-/*   Updated: 2024/11/20 15:00:42 by dhasan           ###   ########.fr       */
+/*   Updated: 2024/11/21 16:57:29 by dhasan           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ class AForm
 		AForm(std::string const name, int gradeToSign, int gradeToExecute, std::string const target);
 		AForm(const AForm& other);
 		AForm &operator=(const AForm& other);
-		~AForm();
+		virtual ~AForm();
 		void beSigned(Bureaucrat& bureaucrat);
 		bool getIsSigned() const;
 		std::string getName() const;
