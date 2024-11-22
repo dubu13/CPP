@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: dhasan <dhasan@student.42.fr>              +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 16:22:36 by dhasan            #+#    #+#             */
-/*   Updated: 2024/11/14 19:20:51 by dhasan           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "Bureaucrat.hpp"
 
 int main()
@@ -19,7 +7,7 @@ int main()
 		Bureaucrat bob("Bob", 100);
 		bob.incrementGrade();
 		bob.decrementGrade();
-		std::cout << bob << std::endl;
+		std::cout << "=== << operator to overload ===\n" << bob << std::endl;
 	}
 	catch (std::exception& e) {
 		std::cerr << "Exception: " << e.what() << std::endl;
