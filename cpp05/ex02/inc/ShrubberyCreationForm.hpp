@@ -1,18 +1,11 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/14 21:08:07 by dhasan            #+#    #+#             */
-/*   Updated: 2024/11/20 15:17:21 by dhasan           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #pragma once
 
 #include "AForm.hpp"
+#include <iostream>
+#include <string>
+#include <exception>
+#include <fstream>
+
 #define TREE \
 "                 *\n\
                 ***\n\
@@ -26,6 +19,7 @@
         *******************\n"
 
 class AForm;
+
 class ShrubberyCreationForm : public AForm
 {
 	public:

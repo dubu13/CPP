@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/18 14:32:17 by dhasan            #+#    #+#             */
-/*   Updated: 2024/11/20 15:01:53 by dhasan           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "RobotomyRequestForm.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm(std::string const target) : AForm("Robotomy Request", 72, 45, target){

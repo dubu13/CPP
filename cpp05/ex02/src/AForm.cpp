@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   AForm.cpp                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 16:42:01 by dhasan            #+#    #+#             */
-/*   Updated: 2024/11/20 15:00:57 by dhasan           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "AForm.hpp"
 
 AForm::AForm(const std::string name, int gradeToSign, int gradeToExecute, const std::string target)
@@ -31,8 +19,7 @@ AForm::AForm(const AForm& other)
 	std::cout << "AForm copy constructor called." << std::endl;
 }
 
-AForm& AForm::operator=(const AForm& other)
-{
+AForm& AForm::operator=(const AForm& other){
     if (this != &other)
     {
         this->_isSigned = other._isSigned;
@@ -41,13 +28,11 @@ AForm& AForm::operator=(const AForm& other)
     return *this;
 }
 
-AForm::~AForm()
-{
+AForm::~AForm(){
 	// std::cout << "AForm destructor called." << std::endl;
 }
 
-void AForm::beSigned(Bureaucrat& bureaucrat)
-{
+void AForm::beSigned(Bureaucrat& bureaucrat){
 	if (bureaucrat.getGrade() > this->_gradeToSign)
 		throw AForm::GradeTooLowException();
 	else
@@ -68,6 +53,22 @@ int AForm::getGradeToSign() const{
 
 int AForm::getGradeToExecute() const{
 	return this->_gradeToExecute;
+}
+
+const char* AForm::GradeTooHighException::what() const throw(){
+	return "Grade too high";
+}
+
+const char* AForm::GradeTooLowException::what() const throw(){
+	return "Grade too low";
+}
+
+const char* AForm::FormNotSignedException::what() const throw() {
+	return "Form is not signed";
+}
+
+const char* AForm::GradeTooLowToExecuteException::what() const throw(){
+	return "Grade too low to execute";
 }
 
 std::ostream &operator<<(std::ostream &os, const AForm &AForm)

@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Form.hpp                                           :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 16:41:32 by dhasan            #+#    #+#             */
-/*   Updated: 2024/11/09 17:13:01 by dhasan           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #pragma once
 
 #include <iostream>
@@ -35,12 +23,12 @@ class Form
 		class GradeTooHighException : public std::exception
 		{
 			public :
-				const char *what() const throw();
+				const char *what() const throw() override;
 		};
 		class GradeTooLowException : public std::exception
 		{
 			public :
-				const char *what() const throw();
+				const char *what() const throw() override;
 		};
 
 	private:

@@ -1,16 +1,5 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   Bureaucrat.hpp                                     :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/18 19:11:04 by dhasan            #+#    #+#             */
-/*   Updated: 2024/11/09 17:13:09 by dhasan           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #pragma once
+
 #include "Form.hpp"
 #include <iostream>
 #include <string>
@@ -34,12 +23,12 @@ class Bureaucrat
 		class GradeTooHighException : public std::exception
 		{
 			public :
-				const char *what() const throw();
+				const char *what() const throw() override;
 		};
 		class GradeTooLowException : public std::exception
 		{
 			public :
-				const char *what() const throw();
+				const char *what() const throw() override;
 		};
 
 	private:

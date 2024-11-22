@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/18 14:32:17 by dhasan            #+#    #+#             */
-/*   Updated: 2024/11/20 15:01:53 by dhasan           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #include "RobotomyRequestForm.hpp"
 
 RobotomyRequestForm::RobotomyRequestForm(std::string const target) : AForm("Robotomy Request", 72, 45, target){
@@ -20,8 +8,7 @@ RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other) : AFo
 	std::cout << "RobotomyRequestForm copy constructor called" << std::endl;
 }
 
-RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& other)
-{
+RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& other){
     if (this != &other)
         AForm::operator=(other);
     std::cout << "RobotomyRequestForm copy assignment operator called" << std::endl;
@@ -32,8 +19,7 @@ RobotomyRequestForm::~RobotomyRequestForm(){
 	// std::cout << "RobotomyRequestForm destructor called" << std::endl;
 }
 
-void RobotomyRequestForm::execute(Bureaucrat const & executor) const
-{
+void RobotomyRequestForm::execute(Bureaucrat const & executor) const{
 	if (!this->getIsSigned())
 		throw AForm::FormNotSignedException();
 	if (executor.getGrade() > this->getGradeToExecute())

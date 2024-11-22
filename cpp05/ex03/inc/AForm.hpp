@@ -1,15 +1,3 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   AForm.hpp                                          :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/04 16:41:32 by dhasan            #+#    #+#             */
-/*   Updated: 2024/11/21 16:57:29 by dhasan           ###   ########.fr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #pragma once
 
 #include <iostream>
@@ -44,24 +32,24 @@ class AForm
 		class GradeTooHighException : public std::exception
 		{
 			public :
-				const char *what() const throw() { return "Grade too high"; }
+				const char *what() const throw() override;
 		};
 		class GradeTooLowException : public std::exception
 		{
 			public :
-				const char *what() const throw() { return "Grade too low"; }
+				const char *what() const throw() override;
 		};
 
 		class FormNotSignedException : public std::exception
 		{
 			public :
-				const char *what() const throw() { return "Form is not signed"; }
+				const char *what() const throw() override;
 		};
 
 		class GradeTooLowToExecuteException : public std::exception
 		{
 			public :
-				const char *what() const throw() { return "Grade too low to execute"; }
+				const char *what() const throw() override;
 		};
 };
 

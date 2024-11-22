@@ -6,7 +6,7 @@
 #    By: dhasan <dhasan@student.42heilbronn.de>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/08/18 11:52:45 by dhasan            #+#    #+#              #
-#    Updated: 2024/11/20 13:49:29 by dhasan           ###   ########.fr        #
+#    Updated: 2024/11/22 19:02:22 by dhasan           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,7 @@ $(OBJDIR)/%.o: $(SRCDIR)/%.cpp
 
 clean:
 	rm -f $(OBJS)
+	rm -rf $(OBJDIR)
 	echo $(RED)"Removing $(NAME) object files"$(DEFAULT);
 
 fclean: clean
