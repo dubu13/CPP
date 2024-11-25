@@ -52,7 +52,67 @@ void ScalarConverter::intConverter(std::string input){
     }
     catch(const std::exception& e)
     {
-        std::cerr << input << " " << e.what() << std::endl;
+        std::cerr << "input: " << input << ", " << e.what() << std::endl;
+        std::cout << "char: impossible" << std::endl;
+        std::cout << "int: impossible" << std::endl;
+        std::cout << "float: impossible" << std::endl;
+        std::cout << "double: impossible" << std::endl;
+    }
+}
+
+void ScalarConverter::charConverter(std::string input){
+    char c = input[0];
+    if (isprint(c))
+        std::cout << "char: " << c << std::endl;
+    else
+        std::cout << "char: Non displayable" << std::endl;
+    std::cout << "int: " << static_cast<int>(c) << std::endl;
+    std::cout << "float: " << static_cast<float>(c) << ".0f" << std::endl;
+    std::cout << "double: " << static_cast<double>(c) << ".0" << std::endl;
+
+}
+
+void ScalarConverter::floatConverter(std::string input){
+    try
+    {
+        float f = std::stof(input);
+        if (f > 127 || f < 0)
+            std::cout << "char: impossible" << std::endl;
+        else if (f < 32 || f == 127)
+            std::cout << "char: Non displayable" << std::endl;
+        else
+            std::cout << "char: " << static_cast<char>(f) << std::endl;  
+        std::cout << "int: " << static_cast<int>(f) << std::endl;
+        std::cout << "float: " << static_cast<float>(f) << ".0f" << std::endl;
+        std::cout << "double: " << static_cast<double>(f) << ".0" << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << "input: " << input << ", " << e.what() << std::endl;
+        std::cout << "char: impossible" << std::endl;
+        std::cout << "int: impossible" << std::endl;
+        std::cout << "float: impossible" << std::endl;
+        std::cout << "double: impossible" << std::endl;
+    }
+}
+
+void ScalarConverter::doubleConverter(std::string input){
+    try
+    {
+        double d = std::stod(input);
+        if (d > 127 || d < 0)
+            std::cout << "char: impossible" << std::endl;
+        else if (d < 32 || d == 127)
+            std::cout << "char: Non displayable" << std::endl;
+        else
+            std::cout << "char: " << static_cast<char>(d) << std::endl;
+        std::cout << "int: " << static_cast<int>(d) << std::endl;
+        std::cout << "float: " << static_cast<float>(d) << ".0f" << std::endl;
+        std::cout << "double: " << static_cast<double>(d) << ".0" << std::endl;
+    }
+    catch(const std::exception& e)
+    {
+        std::cerr << "input: " << input << ", " << e.what() << std::endl;
         std::cout << "char: impossible" << std::endl;
         std::cout << "int: impossible" << std::endl;
         std::cout << "float: impossible" << std::endl;
