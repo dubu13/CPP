@@ -2,8 +2,8 @@
 
 #include <iostream>
 #include <string>
+#include <iomanip>
 
-//to disable the instantiation set the constructor as private or deleted
 enum Type{
         CHAR,
         INT,
@@ -14,7 +14,7 @@ enum Type{
 class ScalarConverter
 {
     public:
-};        ScalarConverter() = delete;
+        ScalarConverter() = delete;
         ScalarConverter(const ScalarConverter &other) = delete;
         ScalarConverter &operator=(const ScalarConverter &other) = delete;
         ~ScalarConverter() = delete;
@@ -25,3 +25,8 @@ class ScalarConverter
         static void doubleConverter(std::string input);
         static Type inputType(std::string input);
 };
+bool isInt(std::string input);
+bool isFloat(std::string input);
+bool isDouble(std::string input);
+bool isChar(std::string input);
+void handleDecimalStream();

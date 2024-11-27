@@ -1,38 +1,30 @@
 #include "ScalarConverter.hpp"
 
-Type ScalarConverter::inputType(std::string input){
-
-    if (isChar(input))
-        return CHAR;
-    else if (isInt(input))
-        return INT;
-    else if (isFloat(input))
-        return FLOAT;
-    else if (isDouble(input))
-        return DOUBLE;
-    else
-        return INVALID;
+void ScalarConverter::convert(std::string input){
+    if (input.empty()){
+        std::cerr << "Invalid input" << std::endl;
+        return;
+    }
+    handleDecimalStream();
+    switch (inputType(input))
+    {
+    case CHAR:
+        charConverter(input);
+        break;
+    case INT:
+        intConverter(input);
+        break;
+    case FLOAT:
+        floatConverter(input);
+        break;
+    case DOUBLE:
+        doubleConverter(input);
+        break;
+    case INVALID:
+        std::cerr << "Invalid input" << std::endl;
+        break;
+    }
 }
-
-}
-
-}
-
-// ScalarConverter::inputType(std::string input){
-
-//     if (input.length() == 1 && !isdigit(input[0]))
-//         return CHAR;
-//     else if (input.find('.') != std::string::npos)
-//         return DOUBLE;
-//     else if (input.find('f') != std::string::npos)
-//         return FLOAT;
-//     else
-//         return INT;
-// }
-
-// void ScalarConverter::converter(std::string input){
-
-// }
 
 void ScalarConverter::intConverter(std::string input){
     try
