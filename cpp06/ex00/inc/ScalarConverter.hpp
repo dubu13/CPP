@@ -4,16 +4,24 @@
 #include <string>
 
 //to disable the instantiation set the constructor as private or deleted
+enum Type{
+        CHAR,
+        INT,
+        FLOAT,
+        DOUBLE,
+        INVALID
+};
 class ScalarConverter
 {
-    // private:
     public:
-        ScalarConverter();
-        ScalarConverter(const ScalarConverter &other);
-        ScalarConverter &operator=(const ScalarConverter &other);
-        ~ScalarConverter();
-        void intConverter(std::string input);
-        void charConverter(std::string input);
-        void floatConverter(std::string input);
-        void doubleConverter(std::string input);
+};        ScalarConverter() = delete;
+        ScalarConverter(const ScalarConverter &other) = delete;
+        ScalarConverter &operator=(const ScalarConverter &other) = delete;
+        ~ScalarConverter() = delete;
+        static void convert(std::string input);
+        static void intConverter(std::string input);
+        static void charConverter(std::string input);
+        static void floatConverter(std::string input);
+        static void doubleConverter(std::string input);
+        static Type inputType(std::string input);
 };
