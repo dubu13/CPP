@@ -1,6 +1,11 @@
 #pragma once
 
 #include "AForm.hpp"
+#include <iostream>
+#include <string>
+#include <exception>
+#include <fstream>
+
 #define TREE \
 "                 *\n\
                 ***\n\

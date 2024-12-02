@@ -1,22 +1,22 @@
 #include "Intern.hpp"
 
 Intern::Intern(){
-    std::cout << "Intern default constructor called" << std::endl;
+    // std::cout << "Intern default constructor called" << std::endl;
 }
 
 Intern::Intern(const Intern& other){
     (void)other;
-    std::cout << "Intern copy constructor called" << std::endl;
+    // std::cout << "Intern copy constructor called" << std::endl;
 }
 
 Intern &Intern::operator=(const Intern& other){
     (void)other;
-    std::cout << "Intern copy assignment operator called" << std::endl;
+    // std::cout << "Intern copy assignment operator called" << std::endl;
     return *this;
 }
 
 Intern::~Intern(){
-    std::cout << "Intern destructor called" << std::endl;
+    // std::cout << "Intern destructor called" << std::endl;
 }
 
 std::string convert_lowercase(std::string str){

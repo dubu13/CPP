@@ -10,18 +10,20 @@ int main()
     try
     {
         Intern someRandomIntern;
-        // Bureaucrat boss("Boss", 1);
+        Bureaucrat boss("Boss", 1);
         
         AForm* rrf = someRandomIntern.makeForm("robotomy request", "Bender");
         std::cout << "------------------------" << std::endl;
         AForm* invalid = someRandomIntern.makeForm("invalid form", "Target");
 
-        // boss.signForm(*rrf);
-        // boss.executeForm(*rrf);
+        boss.signForm(*rrf);
+        boss.executeForm(*rrf);
         if (rrf)
             delete rrf;
-        if (invalid != nullptr)
-            std::cout << "if u see this, something went wrong" << std::endl;
+        if (invalid){
+            std::cout << "something is wrong" << std::endl;
+            delete invalid;
+        }
     }
     catch (std::exception &e)
     {

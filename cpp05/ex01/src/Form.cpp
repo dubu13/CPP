@@ -6,24 +6,23 @@ Form::Form(std::string const name, int gradeToSign, int gradeToExecute) : _name(
 		throw Form::GradeTooHighException();
 	else if (gradeToSign > 150 || gradeToExecute > 150)
 		throw Form::GradeTooLowException();
-	std::cout << "Form constructor called" << std::endl;
-	std::cout << "Form " << this->_name << " created with grade to sign " << this->_gradeToSign << " and grade to execute " << this->_gradeToExecute << std::endl;
+	// std::cout << "Form constructor called" << std::endl;
+	std::cout << "Form: " << this->_name << " created with grade to sign " << this->_gradeToSign << " and grade to execute " << this->_gradeToExecute << std::endl;
 }
 
 Form::Form(const Form& other) : _name(other._name), _gradeToSign(other._gradeToSign), _gradeToExecute(other._gradeToExecute){
-	*this = other;
-	std::cout << "Form copy constructor called." << std::endl;
+	// std::cout << "Form copy constructor called." << std::endl;
 }
 
 Form &Form::operator=(const Form& other){
 	if (this != &other)
 		this->_isSigned = other._isSigned;
-	std::cout << "Form assignation operator called." << std::endl;
+	// std::cout << "Form assignation operator called." << std::endl;
 	return *this;
 }
 
 Form::~Form(){
-	std::cout << "Form destructor called." << std::endl;
+	// std::cout << "Form destructor called." << std::endl;
 }
 
 const char* Form::GradeTooHighException::what() const throw(){
@@ -37,8 +36,7 @@ const char* Form::GradeTooLowException::what() const throw(){
 void Form::beSigned(Bureaucrat& bureaucrat){
 	if (bureaucrat.getGrade() > this->_gradeToSign)
 		throw Form::GradeTooLowException();
-	else
-		this->_isSigned = true;
+	this->_isSigned = true;
 }
 
 bool Form::getIsSigned() const{

@@ -17,11 +17,13 @@ class AForm
 		int const _gradeToSign;
 		int const _gradeToExecute;
 		bool _isSigned;
+
 	public:
 		AForm(std::string const name, int gradeToSign, int gradeToExecute, std::string const target);
 		AForm(const AForm& other);
 		AForm &operator=(const AForm& other);
-		~AForm();
+		virtual ~AForm();
+
 		void beSigned(Bureaucrat& bureaucrat);
 		bool getIsSigned() const;
 		std::string getName() const;

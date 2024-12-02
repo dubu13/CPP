@@ -5,13 +5,13 @@ RobotomyRequestForm::RobotomyRequestForm(std::string const target) : AForm("Robo
 }
 
 RobotomyRequestForm::RobotomyRequestForm(const RobotomyRequestForm& other) : AForm(other){
-	std::cout << "RobotomyRequestForm copy constructor called" << std::endl;
+	// std::cout << "RobotomyRequestForm copy constructor called" << std::endl;
 }
 
 RobotomyRequestForm& RobotomyRequestForm::operator=(const RobotomyRequestForm& other){
     if (this != &other)
         AForm::operator=(other);
-    std::cout << "RobotomyRequestForm copy assignment operator called" << std::endl;
+    // std::cout << "RobotomyRequestForm copy assignment operator called" << std::endl;
     return *this;
 }
 
@@ -24,14 +24,12 @@ void RobotomyRequestForm::execute(Bureaucrat const & executor) const{
 		throw AForm::FormNotSignedException();
 	if (executor.getGrade() > this->getGradeToExecute())
 		throw AForm::GradeTooLowToExecuteException();
+
+	std::cout << "* DRILLING NOISES * Bzzzz... Whirrr... *" << std::endl;
+	std::mt19937 gen(std::random_device{}());
+	bool randomSuccess = gen() % 2 == 0;
+	if (randomSuccess)
+		std::cout << this->_target << " has been robotomized successfully" << std::endl;
 	else
-	{
-		std::cout << "* DRILLING NOISES * Bzzzz... Whirrr... *" << std::endl;
-		std::mt19937 gen(std::random_device{}());
-		bool randomSuccess = gen() % 2 == 0;
-		if (randomSuccess)
-			std::cout << this->_target << " has been robotomized successfully" << std::endl;
-		else
-			std::cout << "Robotomy failed for " << this->_target << std::endl;
-	}
+		std::cout << "Robotomy failed for " << this->_target << std::endl;
 }

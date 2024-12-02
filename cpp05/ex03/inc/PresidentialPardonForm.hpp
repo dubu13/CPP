@@ -2,6 +2,10 @@
 
 #include "AForm.hpp"
 #include <random>
+#include <iostream>
+#include <string>
+#include <exception>
+#include <fstream>
 
 class AForm;
 

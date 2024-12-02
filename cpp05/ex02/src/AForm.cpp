@@ -9,7 +9,7 @@ AForm::AForm(const std::string name, int gradeToSign, int gradeToExecute, const 
 	else if (gradeToSign > 150 || gradeToExecute > 150)
 		throw AForm::GradeTooLowException();
 	// std::cout << "AForm constructor called" << std::endl;
-	std::cout << "AForm " << this->_name << " created with grade to sign " << this->_gradeToSign << " and grade to execute " << this->_gradeToExecute << std::endl;
+	std::cout << "AForm: " << this->_name << " created with grade to sign " << this->_gradeToSign << " and grade to execute " << this->_gradeToExecute << std::endl;
 }
 
 AForm::AForm(const AForm& other)
@@ -21,10 +21,8 @@ AForm::AForm(const AForm& other)
 
 AForm& AForm::operator=(const AForm& other){
     if (this != &other)
-    {
         this->_isSigned = other._isSigned;
-    }
-    std::cout << "AForm copy assignment operator called" << std::endl;
+    // std::cout << "AForm copy assignment operator called" << std::endl;
     return *this;
 }
 
@@ -35,8 +33,7 @@ AForm::~AForm(){
 void AForm::beSigned(Bureaucrat& bureaucrat){
 	if (bureaucrat.getGrade() > this->_gradeToSign)
 		throw AForm::GradeTooLowException();
-	else
-		this->_isSigned = true;
+	this->_isSigned = true;
 }
 
 bool AForm::getIsSigned() const{

@@ -22,6 +22,7 @@ class AForm
 		AForm(const AForm& other);
 		AForm &operator=(const AForm& other);
 		virtual ~AForm();
+	
 		void beSigned(Bureaucrat& bureaucrat);
 		bool getIsSigned() const;
 		std::string getName() const;

@@ -5,13 +5,13 @@ ShrubberyCreationForm::ShrubberyCreationForm(std::string const target) : AForm("
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(const ShrubberyCreationForm& other) : AForm(other){
-	std::cout << "ShrubberyCreationForm copy constructor called" << std::endl;
+	// std::cout << "ShrubberyCreationForm copy constructor called" << std::endl;
 }
 
 ShrubberyCreationForm& ShrubberyCreationForm::operator=(const ShrubberyCreationForm& other){
     if (this != &other)
         AForm::operator=(other);
-    std::cout << "ShrubberyCreationForm copy assignment operator called" << std::endl;
+    // std::cout << "ShrubberyCreationForm copy assignment operator called" << std::endl;
     return *this;
 }
 
@@ -24,13 +24,11 @@ void ShrubberyCreationForm::execute(Bureaucrat const & executor) const{
 		throw AForm::FormNotSignedException();
 	if (executor.getGrade() > this->getGradeToExecute())
 		throw AForm::GradeTooLowToExecuteException();
-	else
-	{
-		std::ofstream file(this->_target + "_shrubbery");
-		if (!file.is_open())
-			throw std::runtime_error("Error: could not open file");
-		file << TREE;
-		file.close();
-		std::cout << "Shrubbery file created successfully!" << std::endl;
-	}
+
+	std::ofstream file(this->_target + "_shrubbery");
+	if (!file.is_open())
+		throw std::runtime_error("Error: could not open file");
+	file << TREE;
+	file.close();
+	std::cout << "Shrubbery file created successfully!" << std::endl;
 }

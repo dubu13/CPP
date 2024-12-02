@@ -22,6 +22,7 @@ int main()
 		Bureaucrat intern("Intern", 150);
 		Form important("Important", 1, 1);
 		intern.signForm(important);
+		std::cout << important << std::endl;
 	}
 	catch (std::exception &e)
 	{
