@@ -29,6 +29,7 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
+	rm -rf $(OBJDIR)
 	echo $(RED)"Removing $(NAME)"$(DEFAULT);
 
 re: fclean all
