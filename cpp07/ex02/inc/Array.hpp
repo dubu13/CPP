@@ -5,12 +5,15 @@ template <typename T>
 class Array
 {
     public:
-        Array();//empty array
-        Array(unsigned int n);//array of size n
+        Array();
+        Array(unsigned int n);
         Array(const Array &other);
         Array &operator=(const Array &other);
         ~Array();
     
+        T &operator[](unsigned int i);
+        const T &operator[](unsigned int i) const;
+        unsigned int size() const;
     private:
         T *_arr;
         unsigned int _size;
