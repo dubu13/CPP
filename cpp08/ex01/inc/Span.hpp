@@ -18,6 +18,16 @@ class Span{
         ~Span();
 
         void addNumber(int value);
+        void addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end);
         int shortestSpan();
         int longestSpan();
+        class SpanException : public std::exception {
+            private:
+                std::string _message;
+            public:
+                SpanException(const std::string& message) : _message(message) {};
+                const char* what() const throw() override {
+                    return _message.c_str();
+                };
+        };
 };
