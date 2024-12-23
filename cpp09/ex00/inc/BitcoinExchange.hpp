@@ -1,6 +1,3 @@
-//Computed Value=Quantity (from input)×Exchange Rate (from database)
-//If the date from the input file does not exist in the database Use the closest earlier date in the database.
-//check if date and value is valid
 #pragma once
 
 #include <iostream>
@@ -12,15 +9,17 @@
 class BitcoinExchange{
     private:
         std::map<std::string, double> database;
+        void parsingDatabase(const std::string databaseFile);
+        void exchangeRate(const std::string date, const double value);
+        void parsingInputFile(const std::string inputFile);
     public:
         BitcoinExchange() = default;
         BitcoinExchange(const BitcoinExchange &other) = default;
         BitcoinExchange &operator=(const BitcoinExchange &other) = default;
         ~BitcoinExchange() = default;
 
-        void parsingDatabase(const std::string databaseFile);
+        void btc(const std::string inputFile);
 };
 
 bool isValidDate(const std::string date);
-bool isValidValue(const std::string value);
-void parsingInputFile(const std::string inputFile);
+std::string ft_trim(std::string str);

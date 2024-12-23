@@ -1,33 +1,54 @@
 #include "BitcoinExchange.hpp"
 
+void BitcoinExchange::btc(std::string inputFile){
+    parsingDatabase("data.csv");
+    parsingInputFile(inputFile);
+}
+
+void BitcoinExchange::exchangeRate(const std::string inputDate, const double value) {
+    auto dateIterator = this->database.lower_bound(inputDate);
+
+    if (dateIterator == this->database.end() || dateIterator->first != inputDate){
+        if (dateIterator == this->database.begin())
+            throw std::runtime_error("No date before " + inputDate);
+        dateIterator--;
+    }
+    double exchangeRate = value * dateIterator->second;
+    std::cout << inputDate << " => " << value << " = " << exchangeRate << std::endl;
+}
+
 void BitcoinExchange::parsingDatabase(const std::string databaseFile) {
     std::ifstream file(databaseFile);
     if (!file.is_open())
         throw std::runtime_error("Failed to open database file");
+
     std::string line;
     std::getline(file, line);
 
     while (std::getline(file, line)){
-        std::istringstream lineStream(line);
-        std::string date,value;
-       if (std::getline(lineStream, date, ',') && std::getline(lineStream, value)){
-            if (!isValidDate(date) || !isValidValue(value) || date.empty() || value.empty())
-                throw std::runtime_error("Invalid/empty date or value");
-            try{
-                double currencey = std::stod(value);
-                this->database[date] = currencey;
+        try{
+            std::istringstream lineStream(line);
+            std::string date,strValue;
+            if (line.find(',') == std::string::npos)
+                throw std::runtime_error("bad input => " + line);
+            if (std::getline(lineStream, date, ',') && std::getline(lineStream, strValue)){
+                if (!isValidDate(date))
+                    throw std::runtime_error("bad input => " + date);
+                if (date.empty() || strValue.empty())
+                    throw std::runtime_error("empty date or value ");
+                double bitcoinPrice = std::stod(strValue);
+                if (bitcoinPrice < 0)
+                    throw std::out_of_range("");
+                this->database[date] = bitcoinPrice;
             }
-            catch(const std::invalid_argument &e){
-                std::cout << "invalid value" << std::endl;
-            }
-            catch(const std::out_of_range &e){
-                std::cout << "value is out of range" << std::endl;
-            }
-       }
+        }
+        catch (const std::exception &e){
+            std::cerr << "Error: " << e.what() << std::endl;
+        }
     }
 }
 
-void parsingInputFile(const std::string inputFile) {
+void BitcoinExchange::parsingInputFile(const std::string inputFile) {
     std::ifstream file(inputFile);
     if (!file.is_open())
         throw std::runtime_error("Failed to open input file");
@@ -36,20 +57,30 @@ void parsingInputFile(const std::string inputFile) {
     std::getline(file, line);
 
     while (std::getline(file, line)){
-        std::istringstream lineStream(line);
-        std::string date,value;
-       if (std::getline(lineStream, date, '|') && std::getline(lineStream, value)){
-            date = date.substr(0, date.find_last_not_of(" \t") + 1);
-            date = date.substr(date.find_first_not_of(" \t"));
-            value = value.substr(0, value.find_last_not_of(" \t") + 1);
-            value = value.substr(value.find_first_not_of(" \t"));
-            if (!isValidDate(date) || !isValidValue(value) || date.empty() || value.empty())
-                throw std::runtime_error("Invalid/empty date or value");
-            // double valueDouble = std::stod(value);
-            //call the function to calculate the exchange rate
-       }
+        try{
+            std::istringstream lineStream(line);
+            std::string date, strValue;
+            if (line.find('|') == std::string::npos)
+                throw std::runtime_error("bad input => " + line);
+            if (std::getline(lineStream, date, '|') && std::getline(lineStream, strValue)){
+                date = ft_trim(date);
+                strValue = ft_trim(strValue);
+                if (!isValidDate(date))
+                    throw std::runtime_error("bad input => " + date);
+                if (date.empty() || strValue.empty())
+                    throw std::runtime_error("empty date or value ");
+                double value = std::stod(strValue);
+                if (value < 0 || value > 1000)
+                    throw std::runtime_error("bad number => " + strValue);
+                BitcoinExchange::exchangeRate(date, value);
+            }
+        }
+        catch (const std::exception &e){
+            std::cerr << "Error: " << e.what() << std::endl;
+        }
     }
 }
+
 bool isValidDate(const std::string date) {
     int year, month, day;
     char dash1, dash2;
@@ -72,15 +103,11 @@ bool isValidDate(const std::string date) {
     return true;
 }
 
-bool isValidValue(const std::string value) {
-    double val;
-
-    std::istringstream valueStream(value);
-    valueStream >> val;
-
-    if (valueStream.fail() || val < 0 || val > 1000)
-        return false;
-    if (!valueStream.eof())
-        return false;
-    return true;
+std::string ft_trim(const std::string str){
+    const auto strBegin = str.find_first_not_of(" \t");
+    if (strBegin == std::string::npos)
+        return "";
+    const auto strEnd = str.find_last_not_of(" \t");
+    const auto strRange = strEnd - strBegin + 1;
+    return str.substr(strBegin, strRange);
 }
