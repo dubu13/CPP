@@ -1,36 +1,55 @@
 #include "BitcoinExchange.hpp"
 
-void parsingDatabase(const std::string databaseFile) {
-    //convert to stream
-    //check if isopen
-    //start reading the lines
-    //use istringstream to parse and check for whitespaces
+void BitcoinExchange::parsingDatabase(const std::string databaseFile) {
     std::ifstream file(databaseFile);
-    if (!file.is_open()) {
-        std::cerr << "Error: Cannot open file " << databaseFile << std::endl;
-        exit(1);
-    }
+    if (!file.is_open())
+        throw std::runtime_error("Failed to open database file");
     std::string line;
+    std::getline(file, line);
+
     while (std::getline(file, line)){
         std::istringstream lineStream(line);
         std::string date,value;
        if (std::getline(lineStream, date, ',') && std::getline(lineStream, value)){
-            if (!isValidDate(date) || !isValidValue(value))
-                exit(1);
+            if (!isValidDate(date) || !isValidValue(value) || date.empty() || value.empty())
+                throw std::runtime_error("Invalid/empty date or value");
             try{
                 double currencey = std::stod(value);
-                database[date] = currencey;
+                this->database[date] = currencey;
             }
-            catch(const std::exception invalid_argument){
+            catch(const std::invalid_argument &e){
                 std::cout << "invalid value" << std::endl;
             }
-            catch(const std::exception out_of_range){
+            catch(const std::out_of_range &e){
                 std::cout << "value is out of range" << std::endl;
             }
        }
     }
 }
 
+void parsingInputFile(const std::string inputFile) {
+    std::ifstream file(inputFile);
+    if (!file.is_open())
+        throw std::runtime_error("Failed to open input file");
+
+    std::string line;
+    std::getline(file, line);
+
+    while (std::getline(file, line)){
+        std::istringstream lineStream(line);
+        std::string date,value;
+       if (std::getline(lineStream, date, '|') && std::getline(lineStream, value)){
+            date = date.substr(0, date.find_last_not_of(" \t") + 1);
+            date = date.substr(date.find_first_not_of(" \t"));
+            value = value.substr(0, value.find_last_not_of(" \t") + 1);
+            value = value.substr(value.find_first_not_of(" \t"));
+            if (!isValidDate(date) || !isValidValue(value) || date.empty() || value.empty())
+                throw std::runtime_error("Invalid/empty date or value");
+            // double valueDouble = std::stod(value);
+            //call the function to calculate the exchange rate
+       }
+    }
+}
 bool isValidDate(const std::string date) {
     int year, month, day;
     char dash1, dash2;

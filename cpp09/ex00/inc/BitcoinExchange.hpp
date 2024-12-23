@@ -17,7 +17,10 @@ class BitcoinExchange{
         BitcoinExchange(const BitcoinExchange &other) = default;
         BitcoinExchange &operator=(const BitcoinExchange &other) = default;
         ~BitcoinExchange() = default;
+
+        void parsingDatabase(const std::string databaseFile);
 };
 
 bool isValidDate(const std::string date);
 bool isValidValue(const std::string value);
+void parsingInputFile(const std::string inputFile);
