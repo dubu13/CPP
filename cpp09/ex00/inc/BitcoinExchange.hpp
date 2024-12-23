@@ -5,6 +5,19 @@
 
 #include <iostream>
 #include <sstream>
+#include <fstream>
+#include <string>
+#include <map>
+
+class BitcoinExchange{
+    private:
+        std::map<std::string, double> database;
+    public:
+        BitcoinExchange() = default;
+        BitcoinExchange(const BitcoinExchange &other) = default;
+        BitcoinExchange &operator=(const BitcoinExchange &other) = default;
+        ~BitcoinExchange() = default;
+};
 
 bool isValidDate(const std::string date);
 bool isValidValue(const std::string value);

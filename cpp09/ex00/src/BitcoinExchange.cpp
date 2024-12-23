@@ -1,5 +1,36 @@
 #include "BitcoinExchange.hpp"
 
+void parsingDatabase(const std::string databaseFile) {
+    //convert to stream
+    //check if isopen
+    //start reading the lines
+    //use istringstream to parse and check for whitespaces
+    std::ifstream file(databaseFile);
+    if (!file.is_open()) {
+        std::cerr << "Error: Cannot open file " << databaseFile << std::endl;
+        exit(1);
+    }
+    std::string line;
+    while (std::getline(file, line)){
+        std::istringstream lineStream(line);
+        std::string date,value;
+       if (std::getline(lineStream, date, ',') && std::getline(lineStream, value)){
+            if (!isValidDate(date) || !isValidValue(value))
+                exit(1);
+            try{
+                double currencey = std::stod(value);
+                database[date] = currencey;
+            }
+            catch(const std::exception invalid_argument){
+                std::cout << "invalid value" << std::endl;
+            }
+            catch(const std::exception out_of_range){
+                std::cout << "value is out of range" << std::endl;
+            }
+       }
+    }
+}
+
 bool isValidDate(const std::string date) {
     int year, month, day;
     char dash1, dash2;
