@@ -26,17 +26,28 @@ bool PmergeMe::parseInput(int argc, char**argv){
 }
 
 void PmergeMe::sort(){
-    std::cout << "Before: " << std::endl;
+    std::cout << "Before: ";
     for (int num : _vec)
-        std::cout << num << " " << std::endl;
-    for (int num : _deq)
-        std::cout << num << " " << std::endl;
+        std::cout << num << " ";
+    std::cout << std::endl;
+
+    auto vecStart = std::chrono::high_resolution_clock::now();
     mergeSort(_vec);
+    auto vecEnd = std::chrono::high_resolution_clock::now();
+
+    auto deqStart = std::chrono::high_resolution_clock::now();
     mergeSort(_deq);
-    std::cout << "After: " << std::endl;
+    auto deqEnd = std::chrono::high_resolution_clock::now();
+
+    std::cout << "After: ";
     for (int num : _vec)
-        std::cout << num << " " << std::endl;
-    for (int num : _deq)
-        std::cout << num << " " << std::endl;
-    mergeSort(_deq);
+        std::cout << num << " ";
+    std::cout << std::endl;
+
+    double vecDuration =  std::chrono::duration<double, std::micro>(vecEnd - vecStart).count();
+    double deqDuration =  std::chrono::duration<double, std::micro>(deqEnd - deqStart).count();
+    std::cout << "Time to process a range of " << _vec.size()
+        << " elements with std::vector : " << vecDuration << " us" << std::endl;
+    std::cout << "Time to process a range of " << _deq.size()
+        << " elements with std::deque : " << deqDuration << " us" << std::endl;
 }
